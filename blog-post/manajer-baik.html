@@ -6,78 +6,498 @@
     <title>Manajer yang Baik: Warga Negara yang Baik? - By Dimas Blog</title>
     <link rel="icon" type="image/x-icon" href="../assets/img/favicon.ico"> 
 
-    <link rel="stylesheet" href="../css/style.css">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
     <meta name="description" content="Pelajari mengapa manajer yang baik tidak hanya fokus pada profit, tetapi juga pentingnya menjadi warga negara yang bertanggung jawab.">
     <meta name="keywords" content="manajer, profit, etika bisnis, warga negara baik, tanggung jawab sosial, kepemimpinan, ByDimas Blog">
+    
+    <style>
+        :root {
+            --primary-color: #040505;
+            --secondary-color: #040505;
+            --text-dark: #2c2c2c;
+            --text-light: #6c6c6c;
+            --border-light: #e5e5e5;
+            --bg-light: #f9f9f9;
+            --shadow-light: rgba(0, 0, 0, 0.1);
+            --shadow-medium: rgba(0, 0, 0, 0.15);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.7;
+            color: var(--text-dark);
+            background: white;
+            overflow-x: hidden;
+        }
+
+        .main-content {
+            background: white;
+            min-height: 100vh;
+        }
+
+        /* Header Styles */
+        .blog-post-header {
+            background: white;
+            border-bottom: 1px solid var(--border-light);
+            padding: 1.5rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 4px var(--shadow-light);
+        }
+
+        .blog-post-header h1 {
+            font-weight: 700;
+            color: var(--primary-color);
+            font-size: 1.75rem;
+            margin: 0;
+        }
+
+        .blog-post-header h1:hover {
+            color: var(--secondary-color);
+            transition: color 0.3s ease;
+        }
+
+        /* Main Content Styles */
+        .blog-post-content {
+            background: white;
+            padding: 3rem 2rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .blog-post-content h1 {
+            font-size: 2.75rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+            text-align: center;
+        }
+
+        .post-meta {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+            padding: 1rem;
+            background: var(--bg-light);
+            border-radius: 12px;
+            font-size: 0.95rem;
+            color: var(--text-light);
+        }
+
+        .post-meta i {
+            color: var(--secondary-color);
+            margin-right: 0.5rem;
+        }
+
+        .blog-post-content img {
+            border-radius: 12px;
+            margin-bottom: 3rem;
+            box-shadow: 0 8px 24px var(--shadow-medium);
+            transition: transform 0.3s ease;
+        }
+
+        .blog-post-content img:hover {
+            transform: scale(1.02);
+        }
+
+        .blog-post-content h2 {
+            font-size: 1.75rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin: 3rem 0 1.5rem 0;
+            position: relative;
+            padding-left: 1rem;
+        }
+
+        .blog-post-content h2::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: linear-gradient(to bottom, var(--secondary-color), var(--primary-color));
+            border-radius: 2px;
+        }
+
+        .blog-post-content h3 {
+            font-size: 1.4rem;
+            font-weight: 500;
+            color: var(--text-dark);
+            margin: 2rem 0 1rem 0;
+        }
+
+        .blog-post-content p {
+            margin-bottom: 1.5rem;
+            color: var(--text-dark);
+            font-size: 1.1rem;
+            text-align: justify;
+        }
+
+        .blog-post-content ul {
+            margin: 1.5rem 0;
+            padding-left: 0;
+            list-style: none;
+        }
+
+        .blog-post-content li {
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+            padding-left: 2rem;
+            position: relative;
+            font-size: 1.05rem;
+        }
+
+        .blog-post-content li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--secondary-color);
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        blockquote {
+            border-left: 4px solid var(--secondary-color);
+            margin: 2rem 0;
+            padding: 1.5rem 2rem;
+            background: linear-gradient(135deg, var(--bg-light) 0%, #f0f7ff 100%);
+            font-style: italic;
+            color: var(--text-dark);
+            border-radius: 8px;
+            position: relative;
+        }
+
+        blockquote::before {
+            content: '"';
+            font-size: 4rem;
+            color: var(--secondary-color);
+            position: absolute;
+            top: -10px;
+            left: 15px;
+            opacity: 0.3;
+        }
+
+        blockquote footer {
+            margin-top: 1rem;
+            font-size: 0.95rem;
+            color: var(--text-light);
+            font-style: normal;
+            font-weight: 500;
+        }
+
+        /* Navigation Styles */
+        .blog-nav {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 2px solid var(--border-light);
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            font-size: 1rem;
+            border: 2px solid transparent;
+        }
+
+        .btn-outline-primary {
+            border: 2px solid var(--secondary-color);
+            color: var(--secondary-color);
+            background: white;
+        }
+
+        .btn-outline-primary:hover {
+            background: var(--secondary-color);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(248, 246, 246, 0.3);
+        }
+
+        /* Footer Styles */
+        .footer-area {
+            background: bg-dark;
+            color: white;
+            padding: 3rem 0;
+            margin-top: 4rem;
+        }
+
+        .social-links a {
+            transition: all 0.3s ease;
+            font-size: 1.25rem;
+            padding: 0.5rem;
+            border-radius: 50%;
+        }
+
+        .social-links a:hover {
+            background: var(--secondary-color);
+            transform: translateY(-2px);
+        }
+
+        /* Animation Classes */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .blog-post-content {
+                padding: 2rem 1.5rem;
+            }
+            
+            .blog-post-content h1 {
+                font-size: 2.25rem;
+            }
+            
+            .blog-post-content h2 {
+                font-size: 1.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .blog-post-header {
+                padding: 1rem 0;
+            }
+            
+            .blog-post-header h1 {
+                font-size: 1.5rem;
+            }
+            
+            .blog-post-content {
+                padding: 2rem 1rem;
+            }
+            
+            .blog-post-content h1 {
+                font-size: 2rem;
+                text-align: left;
+            }
+            
+            .blog-post-content h2 {
+                font-size: 1.4rem;
+            }
+            
+            .blog-post-content p {
+                font-size: 1rem;
+                text-align: left;
+            }
+            
+            .post-meta {
+                flex-direction: column;
+                gap: 0.75rem;
+                text-align: center;
+            }
+            
+            .blog-nav {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .btn {
+                padding: 0.875rem 1.5rem;
+                font-size: 0.95rem;
+            }
+            
+            blockquote {
+                padding: 1rem 1.5rem;
+                margin: 1.5rem 0;
+            }
+            
+            blockquote::before {
+                font-size: 3rem;
+                top: -5px;
+                left: 10px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .blog-post-content h1 {
+                font-size: 1.75rem;
+            }
+            
+            .blog-post-content {
+                padding: 1.5rem 0.75rem;
+            }
+            
+            .post-meta {
+                margin-bottom: 2rem;
+            }
+            
+            .blog-post-content img {
+                margin-bottom: 2rem;
+            }
+        }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Reading progress bar */
+        .progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 3px;
+            background: linear-gradient(to right, var(--secondary-color), var(--primary-color));
+            z-index: 1000;
+            transition: width 0.1s ease;
+        }
+
+        /* Enhanced focus states for accessibility */
+        .btn:focus,
+        a:focus {
+            outline: 2px solid var(--secondary-color);
+            outline-offset: 2px;
+        }
+    </style>
 </head>
 <body>
-    <header class="blog-post-header bg-light py-1 shadow-sm">
-    <header class="blog-post-header bg-light py-2 shadow-sm">
-    <div class="container d-flex flex-column flex-sm-row justify-content-center justify-content-sm-between align-items-center">
-        <a class="text-decoration-none text-dark">
-            <h1 class="h3 m-0"><span class="text-primary">By</span>Dimas Blog</h1>
-        </a>
+    <div class="progress-bar" id="progressBar"></div>
+    
+    <div class="main-content">
+        <header class="blog-post-header">
+            <div class="container d-flex flex-column flex-sm-row justify-content-center justify-content-sm-between align-items-center">
+                <a href="../index.html" class="text-decoration-none">
+                    <h1 class="h3 m-0">ByDimas Blog</h1>
+                </a>
+            </div>
+        </header>
+
+        <main>
+            <section class="blog-post-content container my 0">
+                <article>
+                    <h1 class="mb-2 fade-in">Lebih dari sekadar profit: Mengapa manajer yang baik juga harus menjadi warga negara yang baik?</h1>
+                    
+                    <div class="post-meta text-muted mb-2 fade-in">
+                        <div><i class="fas fa-calendar-alt"></i><time datetime="2025-07-06">Juli 6, 2025</time></div>
+                        <div><i class="fas fa-user"></i><span>Dimas Muhammad Ramadhan</span></div>
+                        <div><i class="fas fa-tag"></i><span>Manajemen & Etika</span></div>
+                    </div>
+                    
+                    <img src="../img/Manajer yang baik.png" alt="Ilustrasi seorang manajer sedang berdiskusi" class="img-fluid rounded mb-5 fade-in">
+
+                    <p class="fade-in">Profit, efisiensi, dan pertumbuhan. Merupakan tiga pilar yang selalu menjadi prioritas dalam dunia manajemen. Namun, apakah cukup bagi seorang manajer hanya berorientasi pada keuntungan? Mari kita selami mengapa konsep "manajer yang baik" kini tidak terpisahkan dari peran sebagai "warga negara yang baik", dan bagaimana pendekatan ini dapat menciptakan nilai lebih bagi perusahaan dan masyarakat.</p>
+
+                    <h2 class="fade-in">Tanggung jawab yang melampaui batas perusahaan</h2>
+                    <p class="fade-in">Seorang manajer tidak hanya mengelola sumber daya internal, tetapi juga berinteraksi dengan ekosistem yang lebih luas: masyarakat, lingkungan, dan regulasi. Dalam konteks ini, menjadi "warga negara yang baik" berarti memahami dan memenuhi tanggung jawab etika dan sosial.</p>
+                    
+                    <h3 class="fade-in">Dampak sosial dari keputusan bisnis</h3>
+                    <p class="fade-in">Setiap keputusan bisnis, mulai dari kebijakan ketenagakerjaan, sumber bahan baku, hingga praktik pemasaran, memiliki dampak langsung pada masyarakat. Manajer yang baik menyadari bahwa profitabilitas jangka panjang seringkali terkait erat dengan kesejahteraan sosial dan lingkungan.</p>
+                    <ul class="fade-in">
+                        <li><strong>Ketenagakerjaan beretika:</strong> Memastikan upah yang adil, kondisi kerja yang aman, dan kesempatan yang setara bagi semua karyawan.</li>
+                        <li><strong>Keberlanjutan lingkungan:</strong> Mengadopsi praktik ramah lingkungan dalam operasional dan rantai pasok.</li>
+                        <li><strong>Kontribusi komunitas:</strong> Berpartisipasi dalam inisiatif sosial atau mendukung pengembangan komunitas lokal.</li>
+                    </ul>
+
+                    <h2 class="fade-in">Etika dan integritas sebagai fondasi kepemimpinan</h2>
+                    <p class="fade-in">Integritas bukan hanya tentang mematuhi hukum, tetapi juga tentang melakukan hal yang benar bahkan ketika tidak ada yang melihat. Manajer yang menjunjung tinggi etika akan membangun kepercayaan tidak hanya di antara timnya, tetapi juga dengan pelanggan, investor, dan masyarakat luas.</p>
+                    
+                    <blockquote class="fade-in">
+                        "Seorang pemimpin sejati tidak menciptakan pengikut, ia menciptakan lebih banyak pemimpin."
+                        <footer>— Tom Peters</footer>
+                    </blockquote>
+                    
+                    <p class="fade-in">Prinsip-prinsip etika yang kuat dapat menjadi kompas bagi manajer dalam menghadapi dilema bisnis yang kompleks, memastikan keputusan yang diambil tidak hanya menguntungkan perusahaan tetapi juga adil dan bertanggung jawab.</p>
+
+                    <h2 class="fade-in">Manajer sebagai agen perubahan positif</h2>
+                    <p class="fade-in">Dalam era di mana perusahaan memiliki pengaruh besar, manajer memiliki posisi unik untuk menjadi agen perubahan positif. Mereka bisa menginspirasi tim mereka untuk berkontribusi pada tujuan yang lebih besar dari sekadar keuntungan, menciptakan budaya perusahaan yang berlandaskan nilai-nilai yang kuat.</p>
+                    
+                    <p class="fade-in">Dengan demikian, peran seorang manajer melampaui definisi tradisional. Mereka adalah pemimpin yang membentuk masa depan, tidak hanya bagi perusahaan mereka, tetapi juga bagi masyarakat dan dunia di sekitarnya. Menjadi manajer yang baik adalah menjadi warga negara yang baik, yang berkontribusi pada kemajuan kolektif.</p>
+                </article>
+
+                <hr class="my-5">
+
+                <div class="d-flex flex-column flex-sm-row justify-content-between align-items-center mt-5 mb-3 blog-nav">
+                    <a href="../index.html#blog" class="btn btn-outline-primary btn-lg flex-fill me-sm-4 mb-2 mb-sm-0">
+                        <i class="fas fa-arrow-left"></i> Halaman utama
+                    </a>
+                    
+                    <a href="mindset-progresif.html" class="btn btn-outline-primary btn-lg flex-fill">
+                        Blog selanjutnya <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </section>
+        </main>
+
+        <footer class="footer-area text-center py-2 bg-dark text-white">
+            <div class="container">
+                        <div class="social-links">
+                            <a href="https://www.tiktok.com/@de.boyyss?_t=ZS-8xljkShWOEK&_r=1" class="text-white me-3" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                            <a href="https://www.linkedin.com/in/dimas-ramadhan-361a72344?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" class="text-white me-3" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                            <a href="https://www.instagram.com/dimas_m.ramadhan?igsh=MWQzZHAwM2czMTkzZg==" class="text-white" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        </div>
+                <div class="row">
+                    <div class="col-12">
+                        <p class="mb-3">&copy; 2025 ByDimas. All rights reserved.</p>
+                </div>
+            </div>
+        </footer>
     </div>
-</header>
 
-    <main>
-        <section class="blog-post-content container my-5">
-            <article>
-                <h1 class="mb-4">Lebih dari sekadar profit: Mengapa manajer yang baik juga harus menjadi warga negara yang baik?</h1>
-                <p class="post-meta text-muted mb-4">Dipublikasikan pada: <time datetime="2025-06-6">Juli 6, 2025</time> | Oleh: Dimas Muhammad Ramadhan</p>
-                
-                <img src="../img/Manajer yang baik.png" alt="Ilustrasi seorang manajer sedang berdiskusi" class="img-fluid rounded mb-5">
+    <!-- Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        // Reading progress bar
+        window.addEventListener('scroll', function() {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            document.getElementById('progressBar').style.width = scrolled + '%';
+        });
 
-                <p>Profit, efisiensi, dan pertumbuhan. Merupakan tiga pilar yang selalu menjadi prioritas dalam dunia manajemen. Namun, di tengah tantangan global seperti perubahan iklim, kesenjangan sosial, dan isu etika, apakah cukup bagi seorang manajer hanya berorientasi pada keuntungan? Mari kita selami mengapa konsep "manajer yang baik" kini tidak terpisahkan dari peran sebagai "warga negara yang baik", dan bagaimana pendekatan ini dapat menciptakan nilai lebih bagi perusahaan dan masyarakat.</p>
+        // Staggered fade-in animation
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
 
-                <h2>Tanggung jawab yang melampaui batas perusahaan</h2>
-                <p>Seorang manajer tidak hanya mengelola sumber daya internal, tetapi juga berinteraksi dengan ekosistem yang lebih luas: masyarakat, lingkungan, dan regulasi. Dalam konteks ini, menjadi "warga negara yang baik" berarti memahami dan memenuhi tanggung jawab etika dan sosial.</p>
-                
-                <h3>Dampak sosial dari keputusan bisnis</h3>
-                <p>Setiap keputusan bisnis, mulai dari kebijakan ketenagakerjaan, sumber bahan baku, hingga praktik pemasaran, memiliki dampak langsung pada masyarakat. Manajer yang baik menyadari bahwa profitabilitas jangka panjang seringkali terkait erat dengan kesejahteraan sosial dan lingkungan.</p>
-                <ul>
-                    <li>Ketenagakerjaan beretika: Memastikan upah yang adil, kondisi kerja yang aman, dan kesempatan yang setara bagi semua karyawan.</li>
-                    <li>Keberlanjutan lingkungan: Mengadopsi praktik ramah lingkungan dalam operasional dan rantai pasok.</li>
-                    <li>Kontribusi komunitas: Berpartisipasi dalam inisiatif sosial atau mendukung pengembangan komunitas lokal.</li>
-                </ul>
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animationDelay = '0.1s';
+                    entry.target.classList.add('fade-in');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
 
-                <h2>Etika dan integritas sebagai fondasi kepemimpinan</h2>
-                <p>Integritas bukan hanya tentang mematuhi hukum, tetapi juga tentang melakukan hal yang benar bahkan ketika tidak ada yang melihat. Manajer yang menjunjung tinggi etika akan membangun kepercayaan tidak hanya di antara timnya, tetapi juga dengan pelanggan, investor, dan masyarakat luas.</p>
-                <blockquote>
-                    "Seorang pemimpin sejati tidak menciptakan pengikut, ia menciptakan lebih banyak pemimpin."
-                    <footer>— Tom Peters</footer>
-                </blockquote>
-                <p>Prinsip-prinsip etika yang kuat dapat menjadi kompas bagi manajer dalam menghadapi dilema bisnis yang kompleks, memastikan keputusan yang diambil tidak hanya menguntungkan perusahaan tetapi juga adil dan bertanggung jawab.</p>
-
-                <h2>Manajer sebagai agen perubahan positif</h2>
-                <p>Dalam era di mana perusahaan memiliki pengaruh besar, manajer memiliki posisi unik untuk menjadi agen perubahan positif. Mereka bisa menginspirasi tim mereka untuk berkontribusi pada tujuan yang lebih besar dari sekadar keuntungan, menciptakan budaya perusahaan yang berlandaskan nilai-nilai yang kuat.</p>
-                <p>Dengan demikian, peran seorang manajer melampaui definisi tradisional. Mereka adalah pemimpin yang membentuk masa depan, tidak hanya bagi perusahaan mereka, tetapi juga bagi masyarakat dan dunia di sekitarnya. Menjadi manajer yang baik adalah menjadi warga negara yang baik, yang berkontribusi pada kemajuan kolektif.</p>
-
-            </article>
-
-            <hr class="my-5">
-
-            <!-- Bagian Navigasi Artikel Lainnya -->
-            <div class="d-flex flex-column flex-sm-row justify-content-between align-items-center mt-5 mb-3 blog-nav">
-                <!-- Artikel Sebelumnya: Mengarah ke manajer-baik.html -->
-                <a href="../index.html#blog" class="btn btn-outline-primary btn-lg flex-fill me-sm-4 mb-2 mb-sm-0 text-nowrap">
-                    <i class="fa fa-arrow-left me-2"></i> Kembali ke halaman utama
-                </a>
-                
-                <!-- Artikel Selanjutnya: Mengarah ke tren-media.html -->
-                <a href="mindset-progresif.html" class="btn btn-outline-primary btn-lg flex-fill me-sm-4 mb-2 mb-sm-0 text-nowrap">
-                    Blog selanjutnya <i class="fa fa-arrow-right ms-2"></i>
-                </a>
-            </div>
-        </section>
-    </main>
-
-    <footer class="footer-area text-center py-2 bg-dark text-white-50">
-        <div class="container">
-            <p>&copy; 2025 ByDimas. All rights reserved.</p>
-            </div>
-    </footer>
-
-    </body>
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
 </html>
