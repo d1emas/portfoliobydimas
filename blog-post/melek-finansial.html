@@ -3,361 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Melek Finansial untuk Mahasiswa: Panduan Anti Bokek! - By Dimas Blog</title>
+    <title>Tips Menerapkan Personal Finance Paling Pas untuk Pemula yang Belajar - By Dimas Blog</title>
     <link rel="icon" type="image/x-icon" href="../assets/img/favicon.ico"> 
 
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <!-- Google Fonts: Menggunakan font Inter -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
-    <meta name="description" content="Panduan personal finance paling pas untuk pemula, khususnya mahasiswa. Pelajari cara mengelola uang, bedakan kebutuhan vs. keinginan, dan wujudkan kemerdekaan finansialmu!">
-    <meta name="keywords" content="edukasi keuangan, personal finance, mahasiswa, tips keuangan, budgeting, kemerdekaan finansial, anti bokek, ByDimas Blog">
+    <!-- Tailwind CSS CDN - Menggantikan Bootstrap dan CSS kustom -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Konfigurasi Tailwind untuk menambahkan warna kustom dan font -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        // Menggunakan warna primer dan sekunder yang seragam (hitam)
+                        primary: '#040505',
+                        secondary: '#040505',
+                        'text-dark': '#2c2c2c',
+                        'text-light': '#6c6c6c',
+                        'border-light': '#e5e5e5',
+                        'bg-light': '#f9f9f9',
+                    },
+                    boxShadow: {
+                        'light': '0 2px 4px rgba(0, 0, 0, 0.1)',
+                        'medium': '0 8px 24px rgba(0, 0, 0, 0.15)',
+                    },
+                }
+            }
+        }
+    </script>
+    
+    <meta name="description" content="Tips praktis untuk pemula, khususnya mahasiswa, dalam menerapkan personal finance untuk mencapai kemerdekaan finansial.">
+    <meta name="keywords" content="personal finance, tips keuangan, mahasiswa, budgeting, dana darurat, Kalimasada, Akademi Crypto, Ternak Uang, ByDimas Blog">
     
     <style>
-        :root {
-            --primary-color: #040505;
-            --secondary-color: #040505;
-            --text-dark: #2c2c2c;
-            --text-light: #6c6c6c;
-            --border-light: #e5e5e5;
-            --bg-light: #f9f9f9;
-            --shadow-light: rgba(0, 0, 0, 0.1);
-            --shadow-medium: rgba(0, 0, 0, 0.15);
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
+        /* Gaya dasar untuk body */
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-family: 'Inter', sans-serif;
             line-height: 1.7;
             color: var(--text-dark);
             background: white;
             overflow-x: hidden;
-        }
-
-        .main-content {
-            background: white;
-            min-height: 100vh;
-        }
-
-        /* Header Styles */
-        .blog-post-header {
-            background: white;
-            border-bottom: 1px solid var(--border-light);
-            padding: 1.5rem 0;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            box-shadow: 0 2px 4px var(--shadow-light);
-        }
-
-        .blog-post-header h1 {
-            font-weight: 700;
-            color: var(--primary-color);
-            font-size: 1.75rem;
-            margin: 0;
-        }
-
-        .blog-post-header h1:hover {
-            color: var(--secondary-color);
-            transition: color 0.3s ease;
-        }
-
-        /* Main Content Styles */
-        .blog-post-content {
-            background: white;
-            padding: 3rem 2rem;
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        .blog-post-content h1 {
-            font-size: 2.75rem;
-            font-weight: 700;
-            color: var(--text-dark);
-            margin-bottom: 1.5rem;
-            line-height: 1.2;
-            text-align: center;
-        }
-
-        .post-meta {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            align-items: center;
-            gap: 1.5rem;
-            margin-bottom: 3rem;
-            padding: 1rem;
-            background: var(--bg-light);
-            border-radius: 12px;
-            font-size: 0.95rem;
-            color: var(--text-light);
-        }
-
-        .post-meta i {
-            color: var(--secondary-color);
-            margin-right: 0.5rem;
-        }
-
-        .blog-post-content img {
-            border-radius: 12px;
-            margin-bottom: 3rem;
-            box-shadow: 0 8px 24px var(--shadow-medium);
-            transition: transform 0.3s ease;
-        }
-
-        .blog-post-content img:hover {
-            transform: scale(1.02);
-        }
-
-        .blog-post-content h2 {
-            font-size: 1.75rem;
-            font-weight: 600;
-            color: var(--text-dark);
-            margin: 3rem 0 1.5rem 0;
-            position: relative;
-            padding-left: 1rem;
-        }
-
-        .blog-post-content h2::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 0;
-            bottom: 0;
-            width: 4px;
-            background: linear-gradient(to bottom, var(--secondary-color), var(--primary-color));
-            border-radius: 2px;
-        }
-
-        .blog-post-content h3 {
-            font-size: 1.4rem;
-            font-weight: 500;
-            color: var(--text-dark);
-            margin: 2rem 0 1rem 0;
-        }
-
-        .blog-post-content p {
-            margin-bottom: 1.5rem;
-            color: var(--text-dark);
-            font-size: 1.1rem;
-            text-align: justify;
-        }
-
-        .blog-post-content ul {
-            margin: 1.5rem 0;
-            padding-left: 0;
-            list-style: none;
-        }
-
-        .blog-post-content li {
-            margin-bottom: 1rem;
-            color: var(--text-dark);
-            padding-left: 2rem;
-            position: relative;
-            font-size: 1.05rem;
-        }
-
-        .blog-post-content li::before {
-            content: '✓';
-            position: absolute;
-            left: 0;
-            color: var(--secondary-color);
-            font-weight: bold;
-            font-size: 1.2rem;
-        }
-
-        blockquote {
-            border-left: 4px solid var(--secondary-color);
-            margin: 2rem 0;
-            padding: 1.5rem 2rem;
-            background: linear-gradient(135deg, var(--bg-light) 0%, #f0f7ff 100%);
-            font-style: italic;
-            color: var(--text-dark);
-            border-radius: 8px;
-            position: relative;
-        }
-
-        blockquote::before {
-            content: '"';
-            font-size: 4rem;
-            color: var(--secondary-color);
-            position: absolute;
-            top: -10px;
-            left: 15px;
-            opacity: 0.3;
-        }
-
-        blockquote footer {
-            margin-top: 1rem;
-            font-size: 0.95rem;
-            color: var(--text-light);
-            font-style: normal;
-            font-weight: 500;
-        }
-
-        /* Navigation Styles */
-        .blog-nav {
-            margin-top: 3rem;
-            padding-top: 2rem;
-            border-top: 2px solid var(--border-light);
-        }
-
-        .btn {
-            padding: 1rem 2rem;
-            border-radius: 8px;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.75rem;
-            font-size: 1rem;
-            border: 2px solid transparent;
-        }
-
-        .btn-outline-primary {
-            border: 2px solid var(--secondary-color);
-            color: var(--secondary-color);
-            background: white;
-        }
-
-        .btn-outline-primary:hover {
-            background: var(--secondary-color);
-            color: white;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(248, 246, 246, 0.3);
-        }
-
-        /* Footer Styles */
-        .footer-area {
-            background: bg-dark;
-            color: white;
-            padding: 3rem 0;
-            margin-top: 4rem;
-        }
-
-        .social-links a {
-            transition: all 0.3s ease;
-            font-size: 1.25rem;
-            padding: 0.5rem;
-            border-radius: 50%;
-        }
-
-        .social-links a:hover {
-            background: var(--secondary-color);
-            transform: translateY(-2px);
-        }
-
-        /* Animation Classes */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(20px);
-            animation: fadeInUp 0.6s ease forwards;
-        }
-
-        @keyframes fadeInUp {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Responsive Design */
-        @media (max-width: 992px) {
-            .blog-post-content {
-                padding: 2rem 1.5rem;
-            }
-            
-            .blog-post-content h1 {
-                font-size: 2.25rem;
-            }
-            
-            .blog-post-content h2 {
-                font-size: 1.5rem;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .blog-post-header {
-                padding: 1rem 0;
-            }
-            
-            .blog-post-header h1 {
-                font-size: 1.5rem;
-            }
-            
-            .blog-post-content {
-                padding: 2rem 1rem;
-            }
-            
-            .blog-post-content h1 {
-                font-size: 2rem;
-                text-align: left;
-            }
-            
-            .blog-post-content h2 {
-                font-size: 1.4rem;
-            }
-            
-            .blog-post-content p {
-                font-size: 1rem;
-                text-align: left;
-            }
-            
-            .post-meta {
-                flex-direction: column;
-                gap: 0.75rem;
-                text-align: center;
-            }
-            
-            .blog-nav {
-                flex-direction: column;
-                gap: 1rem;
-            }
-            
-            .btn {
-                padding: 0.875rem 1.5rem;
-                font-size: 0.95rem;
-            }
-            
-            blockquote {
-                padding: 1rem 1.5rem;
-                margin: 1.5rem 0;
-            }
-            
-            blockquote::before {
-                font-size: 3rem;
-                top: -5px;
-                left: 10px;
-            }
-        }
-
-        @media (max-width: 576px) {
-            .blog-post-content h1 {
-                font-size: 1.75rem;
-            }
-            
-            .blog-post-content {
-                padding: 1.5rem 0.75rem;
-            }
-            
-            .post-meta {
-                margin-bottom: 2rem;
-            }
-            
-            .blog-post-content img {
-                margin-bottom: 2rem;
-            }
-        }
-
-        /* Smooth scrolling */
-        html {
             scroll-behavior: smooth;
         }
 
@@ -366,18 +59,96 @@
             position: fixed;
             top: 0;
             left: 0;
-            width: 0%;
             height: 3px;
-            background: linear-gradient(to right, var(--secondary-color), var(--primary-color));
+            width: 0%;
+            /* Warna gradient diubah menjadi hitam */
+            background: linear-gradient(to right, #040505, #040505);
             z-index: 1000;
             transition: width 0.1s ease;
         }
 
-        /* Enhanced focus states for accessibility */
-        .btn:focus,
-        a:focus {
-            outline: 2px solid var(--secondary-color);
-            outline-offset: 2px;
+        /* Animasi fade-in */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        .fade-in-active {
+            animation: fadeInUp 0.6s ease forwards;
+        }
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Styling untuk pseudo-element h2 dan li */
+        h2.relative::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            /* Warna gradient diubah menjadi hitam */
+            background: linear-gradient(to bottom, #040505, #040505);
+            border-radius: 2px;
+        }
+
+        li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            /* Warna ceklis diubah menjadi hitam */
+            color: #040505;
+            font-weight: bold;
+            font-size: 1.25rem;
+            line-height: 1;
+        }
+        
+        /* Menghilangkan semua outline default dari browser */
+        a:focus,
+        button:focus,
+        .btn-outline-primary:focus {
+            outline: none !important;
+            box-shadow: none !important;
+        }
+
+        /* Tombol navigasi */
+        .btn-outline-primary {
+            /* Warna border dan text diubah menjadi hitam */
+            border-color: #040505;
+            color: #040505;
+            background-color: transparent;
+            transition: all 0.3s ease;
+        }
+
+        .btn-outline-primary:hover {
+            /* Efek hover diubah menjadi hitam */
+            background-color: #040505;
+            color: white;
+        }
+        
+        /* Tambahkan efek bayangan kustom untuk fokus, agar tetap ada indikasi visual */
+        .btn-outline-primary:focus-visible {
+            box-shadow: 0 0 0 3px rgba(4, 5, 5, 0.5); 
+        }
+
+        /* Gaya untuk side menu */
+        .side-menu {
+            position: fixed;
+            top: 0;
+            left: -100%; /* Sembunyikan di luar layar */
+            width: 75%;
+            max-width: 300px;
+            height: 100%;
+            background-color: #f9f9f9;
+            box-shadow: 2px 0 5px rgba(0,0,0,0.2);
+            transition: left 0.3s ease-in-out;
+            z-index: 100;
+        }
+        .side-menu.open {
+            left: 0; /* Tampilkan di layar */
         }
     </style>
 </head>
@@ -385,95 +156,157 @@
     <div class="progress-bar" id="progressBar"></div>
     
     <div class="main-content">
-        <header class="blog-post-header">
-            <div class="container d-flex flex-column flex-sm-row justify-content-center justify-content-sm-between align-items-center">
+        <!-- Header -->
+        <header class="sticky top-0 z-50 bg-white p-2 shadow-light border-b border-border-light">
+            <div class="container mx-auto px-4 flex justify-between items-center">
                 <a href="../index.html" class="text-decoration-none">
-                    <h1 class="h3 m-0">ByDimas Blog</h1>
+                    <h1 class="text-2xl font-bold text-primary hover:text-secondary transition-colors duration-300">ByDimas Blog</h1>
                 </a>
+
+                <!-- Navigasi desktop, muncul di layar sm ke atas -->
+                <nav class="hidden sm:flex space-x-6 text-sm font-medium">
+                    <a href="../index.html" class="text-text-dark hover:text-secondary transition-colors duration-300">Home</a>
+                    <a href="../index.html#about" class="text-text-dark hover:text-secondary transition-colors duration-300">About</a>
+                    <a href="../index.html#quality" class="text-text-dark hover:text-secondary transition-colors duration-300">Quality</a>
+                    <a href="../index.html#skill" class="text-text-dark hover:text-secondary transition-colors duration-300">Skill</a>
+                    <a href="../index.html#service" class="text-text-dark hover:text-secondary transition-colors duration-300">Service</a>
+                    <a href="../index.html#portfolio" class="text-text-dark hover:text-secondary transition-colors duration-300">Portfolio</a>
+                    <a href="../index.html#blog" class="text-text-dark hover:text-secondary transition-colors duration-300">Blog</a>
+                    <a href="../index.html#contact" class="text-text-dark hover:text-secondary transition-colors duration-300">Contact</a>
+                </nav>
+                
+                <!-- Tombol menu hamburger, muncul hanya di layar sm ke bawah -->
+                <button id="menu-btn" class="sm:hidden text-primary text-2xl p-2 rounded-lg hover:bg-bg-light transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary">
+                    <i class="fas fa-bars"></i>
+                </button>
             </div>
         </header>
 
+        <!-- Side Menu -->
+        <div id="side-menu" class="side-menu flex flex-col p-4">
+            <div class="flex justify-end">
+                <button id="close-menu-btn" class="text-primary text-2xl p-2 rounded-lg hover:bg-bg-light transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <nav class="mt-8">
+                <a href="../index.html" class="block py-3 px-4 text-lg font-medium text-text-dark rounded-lg hover:bg-bg-light transition-colors duration-300">
+                    <i class="fas fa-home mr-3"></i> Home
+                </a>
+                <a href="../index.html#about" class="block py-3 px-4 text-lg font-medium text-text-dark rounded-lg hover:bg-bg-light transition-colors duration-300">
+                    <i class="fas fa-user-circle mr-3"></i> About
+                </a>
+                <a href="../index.html#qualification" class="block py-3 px-4 text-lg font-medium text-text-dark rounded-lg hover:bg-bg-light transition-colors duration-300">
+                    <i class="fas fa-award mr-3"></i> Quality
+                </a>
+                <a href="../index.html#skill" class="block py-3 px-4 text-lg font-medium text-text-dark rounded-lg hover:bg-bg-light transition-colors duration-300">
+                    <i class="fas fa-cogs mr-3"></i> Skill
+                </a>
+                <a href="../index.html#service" class="block py-3 px-4 text-lg font-medium text-text-dark rounded-lg hover:bg-bg-light transition-colors duration-300">
+                    <i class="fas fa-briefcase mr-3"></i> Service
+                </a>
+                <a href="../index.html#portfolio" class="block py-3 px-4 text-lg font-medium text-text-dark rounded-lg hover:bg-bg-light transition-colors duration-300">
+                    <i class="fas fa-image mr-3"></i> Portfolio
+                </a>
+                <a href="../index.html#blog" class="block py-3 px-4 text-lg font-medium text-text-dark rounded-lg hover:bg-bg-light transition-colors duration-300">
+                    <i class="fas fa-blog mr-3"></i> Blog
+                </a>
+                <a href="../index.html#contact" class="block py-3 px-4 text-lg font-medium text-text-dark rounded-lg hover:bg-bg-light transition-colors duration-300">
+                    <i class="fas fa-envelope mr-3"></i> Contact
+                </a>
+            </nav>
+        </div>
+
+        <!-- Main Content -->
         <main>
-            <section class="blog-post-content container my-0">
+            <section class="container mx-auto max-w-4xl px-4 py-8 md:py-12">
                 <article>
-                    <h1 class="mb-2 fade-in">Tips menerapkan personal finance paling pas untuk pemula yang belajar</h1>
+                    <!-- Judul utama diubah agar lebih proporsional di mobile -->
+                    <h1 class="text-3xl md:text-5xl font-bold text-text-dark text-center mb-6 leading-tight fade-in">Tips menerapkan personal finance paling pas untuk pemula yang belajar</h1>
                     
-                    <div class="post-meta text-muted mb-2 fade-in">
-                        <div><i class="fas fa-calendar-alt"></i><time datetime="2025-07-13">Juli 13, 2025</time></div>
-                        <div><i class="fas fa-user"></i><span>Dimas Muhammad Ramadhan</span></div>
-                        <div><i class="fas fa-tag"></i><span>Kalimasada, Akademi Crypto & Ternak Uang</span></div>
+                    <!-- Meta Info -->
+                    <div class="post-meta flex flex-wrap justify-center items-center gap-6 mb-8 p-2 bg-bg-light rounded-xl text-sm md:text-base text-text-light fade-in">
+                        <div class="flex items-center"><i class="fas fa-calendar-alt mr-2 text-secondary"></i><time datetime="2025-07-13">Juli 13, 2025</time></div>
+                        <div class="flex items-center"><i class="fas fa-user mr-2 text-secondary"></i><span>Dimas Muhammad Ramadhan</span></div>
+                        <div class="flex items-center"><i class="fas fa-tag mr-2 text-secondary"></i><span>Kalimasada & Ternak Uang</span></div>
                     </div>
                     
-                    <img src="../img/Kalimasada-2.jpg" alt="Ilustrasi seseorang sedang memegang uang dan laptop, menggambarkan pengelolaan keuangan" class="img-fluid rounded mb-5 fade-in">
+                    <!-- Featured Image - Menggunakan gambar placeholder yang relevan -->
+                    <img src="../img/Kalimasada-2.jpg" alt="Ilustrasi personal finance, tabungan, dan investasi" class="w-full rounded-xl mb-8 shadow-medium transition-transform duration-300 hover:scale-[1.02] fade-in" onerror="this.src='https://placehold.co/900x450/e0e0e0/333333?text=Personal+Finance'">
 
-                    <p class="fade-in">Di Indonesia, mimpi akan kemerdekaan finansial seolah menjadi dambaan banyak orang, termasuk kita sebagai mahasiswa. Namun, tak bisa dipungkiri, minimnya pemahaman atau <strong>literasi finansial</strong> seringkali menjadi hambatan utama yang sulit ditembus. Lalu, untuk kita yang ingin fokus pada <strong>personal finance</strong>, harus dimulai dari mana?</p>
+                    <p class="text-lg text-text-dark sm:text-justify text-left mb-6 fade-in">Di Indonesia, mimpi akan kemerdekaan finansial seolah menjadi dambaan banyak orang, termasuk kita sebagai mahasiswa. Namun, tak bisa dipungkiri, minimnya pemahaman atau literasi finansial seringkali menjadi hambatan utama yang sulit ditembus. Lalu, untuk kita yang ingin fokus pada personal finance, harus dimulai dari mana?</p>
 
-                    <h2 class="fade-in">1. Buat Peta Kesadaran Diri: Pahami Bahwa Hidup Ini Butuh Usaha!</h2>
-                    <p class="fade-in">Langkah pertama dan paling fundamental adalah menyadari bahwa tidak ada yang namanya "makan siang gratis" di dunia ini! Semua butuh usaha dan pertanggungjawaban. Ini berarti kita harus mampu menyediakan kebutuhan untuk diri sendiri, keluarga, dan bahkan orang lain. Untuk kita yang masih mahasiswa dan mungkin masih bergantung pada keluarga, langkah awal yang krusial adalah mulai <strong>mendapatkan pendapatan sendiri</strong>.</p>
-                    <p class="fade-in">Sebagai mahasiswa, mungkin kita mikir, "Gimana mau punya pendapatan, kuliah aja udah padat?" Tapi, justru di sini tantangannya! Banyak kok cara halal buat nambah uang jajan. Coba berbagai cara, eksplorasi keahlianmu, dan jangan malu untuk mencoba hal baru. Bisa dimulai dari <em>freelance</em> desain tugas teman, jualan online kecil-kecilan di media sosial, jadi asisten dosen, atau ikut program magang yang berbayar. Yang paling penting, pastikan pekerjaan itu halal dan tidak mengganggu studi utama kita!</p>
+                    <!-- Section 1: Buat Peta Kesadaran Diri -->
+                    <h2 class="relative text-2xl md:text-3xl font-semibold text-text-dark mt-12 mb-6 pl-4 fade-in">1. Buat Peta Kesadaran Diri: Pahami Bahwa Hidup Ini Butuh Usaha!</h2>
+                    <p class="text-lg text-text-dark sm:text-justify text-left mb-6 fade-in">Langkah pertama dan paling fundamental adalah menyadari bahwa tidak ada yang namanya "makan siang gratis" di dunia ini! Semua butuh usaha dan pertanggungjawaban. Ini berarti kita harus mampu menyediakan kebutuhan untuk diri sendiri, keluarga, dan bahkan orang lain. Untuk kita yang masih mahasiswa dan mungkin masih bergantung pada keluarga, langkah awal yang krusial adalah mulai mendapatkan pendapatan sendiri.</p>
+                    <p class="text-lg text-text-dark sm:text-justify text-left mb-6 fade-in">Sebagai mahasiswa, mungkin kita mikir, "Gimana mau punya pendapatan, kuliah aja udah padat?" Tapi, justru di sini tantangannya! Banyak kok cara halal buat nambah uang jajan. Coba berbagai cara, eksplorasi keahlianmu, dan jangan malu untuk mencoba hal baru. Bisa dimulai dari freelance desain tugas teman, jualan online kecil-kecilan di media sosial, jadi asisten dosen, atau ikut program magang yang berbayar. Yang paling penting, pastikan pekerjaan itu halal dan tidak mengganggu studi utama kita!</p>
 
-                    <h2 class="fade-in">2. Tentukan Tujuan Finansialmu: Mau Ke Mana Arah Uangmu?</h2>
-                    <p class="fade-in">Setelah memahami pentingnya kemandirian finansial, langkah selanjutnya adalah menetapkan <strong>tujuan keuangan</strong> yang jelas. Ini adalah kompas yang akan menuntun setiap keputusan finansialmu. Buat kita yang baru memulai di hidup ini, tujuan utama bisa jadi untuk memperoleh kekayaan atau stabilitas finansial sebanyak-banyaknya.</p>
-                    <p class="fade-in">Berbeda dengan mereka yang sudah "mapan" dan memiliki harta cukup, tujuan mereka mungkin bukan lagi mencari harta, melainkan mempertahankan dan mengembangkan aset yang dimiliki. Karena beda keadaan finansial, beda juga cara mengatur finansialnya. Buat kita mahasiswa, tujuan finansial pertama mungkin bukan langsung "kaya raya", tapi lebih ke "punya dana darurat biar gak nyusahin orang tua kalau ada apa-apa", atau "nabung buat ikut seminar internasional impian", atau bahkan mengumpulkan modal untuk usaha kecil-kecilan setelah lulus. Sesuaikan tujuan yang jelas dengan kondisi dan goals pribadi kita hari ini.</p>
+                    <!-- Section 2: Tentukan Tujuan Finansialmu -->
+                    <h2 class="relative text-2xl md:text-3xl font-semibold text-text-dark mt-12 mb-6 pl-4 fade-in">2. Tentukan Tujuan Finansialmu: Mau Ke Mana Arah Uangmu?</h2>
+                    <p class="text-lg text-text-dark sm:text-justify text-left mb-6 fade-in">Setelah memahami pentingnya kemandirian finansial, langkah selanjutnya adalah menetapkan tujuan keuangan yang jelas. Ini adalah kompas yang akan menuntun setiap keputusan finansialmu. Buat kita yang baru memulai di hidup ini, tujuan utama bisa jadi untuk memperoleh kekayaan atau stabilitas finansial sebanyak-banyaknya.</p>
+                    <p class="text-lg text-text-dark sm:text-justify text-left mb-6 fade-in">Berbeda dengan mereka yang sudah "mapan" dan memiliki harta cukup, tujuan mereka mungkin bukan lagi mencari harta, melainkan mempertahankan dan mengembangkan aset yang dimiliki. Karena beda keadaan finansial, beda juga cara mengatur finansialnya. Buat kita mahasiswa, tujuan finansial pertama mungkin bukan langsung "kaya raya", tapi lebih ke "punya dana darurat biar gak nyusahin orang tua kalau ada apa-apa", atau "nabung buat ikut seminar internasional impian", atau bahkan mengumpulkan modal untuk usaha kecil-kecilan setelah lulus. Sesuaikan tujuan yang jelas dengan kondisi dan goals pribadi kita hari ini.</p>
 
-                    <h2 class="fade-in">3. Coba Lakukan Budgeting Untuk Bulan Ini: Pahami Arus Kasmu!</h2>
-                    <p class="fade-in">Setelah memiliki tujuan yang jelas, saatnya beraksi dengan melakukan <strong>budgeting</strong>. Mulai dari hal yang paling sederhana: coba catat berapa pemasukanmu bulan ini dan pengeluaran bulanan. Setelah tahu nominalnya, pastikan bahwa masih ada surplus, artinya pendapatanmu lebih besar daripada pengeluaran.</p>
-                    <p class="fade-in">Sebagai mahasiswa, "budgeting" itu penyelamat hidup! Jujur, kadang uang kiriman dari rumah suka habis di tengah bulan kalau gak diatur. Kamu bisa mulai dengan buku catatan biasa, spreadsheet sederhana, atau aplikasi budgeting gratis di smartphone yang banyak tersedia (misalnya, aplikasi pencatat keuangan harian). Dengan aplikasi, kita bisa melihat kiranya spending kita dalam satu bulan kebanyakan untuk apa, sehingga di bulan selanjutnya kita bisa melakukan evaluasi mengenai pengeluaran yang kita miliki ini. Ingat, budgeting bukan cuma mencatat, tapi juga evaluasi!</p>
+                    <!-- Section 3: Coba Lakukan Budgeting -->
+                    <h2 class="relative text-2xl md:text-3xl font-semibold text-text-dark mt-12 mb-6 pl-4 fade-in">3. Coba Lakukan Budgeting Untuk Bulan Ini: Pahami Arus Kasmu!</h2>
+                    <p class="text-lg text-text-dark sm:text-justify text-left mb-6 fade-in">Setelah memiliki tujuan yang jelas, saatnya beraksi dengan melakukan budgeting. Mulai dari hal yang paling sederhana: coba catat berapa pemasukanmu bulan ini dan pengeluaran bulanan. Setelah tahu nominalnya, pastikan bahwa masih ada surplus, artinya pendapatanmu lebih besar daripada pengeluaran.</p>
+                    <p class="text-lg text-text-dark sm:text-justify text-left mb-6 fade-in">Sebagai mahasiswa, "budgeting" itu penyelamat hidup! Jujur, kadang uang kiriman dari rumah suka habis di tengah bulan kalau gak diatur. Kamu bisa mulai dengan buku catatan biasa, spreadsheet sederhana, atau aplikasi budgeting gratis di smartphone yang banyak tersedia (misalnya, aplikasi pencatat keuangan harian). Dengan aplikasi, kita bisa melihat kiranya spending kita dalam satu bulan kebanyakan untuk apa, sehingga di bulan selanjutnya kita bisa melakukan evaluasi mengenai pengeluaran yang kita miliki ini. Ingat, budgeting bukan cuma mencatat, tapi juga evaluasi!</p>
 
-                    <h2 class="fade-in">4. Bedakan Kebutuhan dan Keinginan: Jangan Sampai Overspending!</h2>
-                    <p class="fade-in">Banyak dari kita yang terjebak antara kebutuhan dan keinginan sehingga akhirnya melakukan <strong>overspending</strong> atau pengeluaran berlebihan. Kita melakukan ini karena tidak bisa membedakan mana yang benar-benar kita butuhkan dan mana yang hanya sekadar kita inginkan. Kemampuan membedakan dua hal ini akan membuat rencana keuanganmu jauh lebih solid.</p>
-                    <p class="fade-in">Ini nih yang paling sering menjebak mahasiswa: bedain antara butuh dan mau! Contoh paling gampang: butuh kuota internet untuk kuliah online itu wajib, tapi pengen langganan semua platform streaming film berbayar itu keinginan. Kebutuhan buku kuliah yang memang esensial itu penting, tapi beli sneakers keluaran terbaru tiap bulan itu keinginan. Coba biasakan untuk tidak langsung menuruti setiap keinginan dan hanya fokus untuk memenuhi kebutuhan esensial. Itulah mengapa, sangat penting untuk melakukan pencatatan pengeluaran, agar kita bisa melihat dengan jelas mana yang prioritas. Kamu juga bisa coba praktikkan 'delay gratification': kalau ada keinginan muncul, jangan langsung beli. Tunggu 24 jam atau seminggu, apakah keinginan itu masih sekuat sebelumnya?</p>
+                    <!-- Section 4: Bedakan Kebutuhan dan Keinginan -->
+                    <h2 class="relative text-2xl md:text-3xl font-semibold text-text-dark mt-12 mb-6 pl-4 fade-in">4. Bedakan Kebutuhan dan Keinginan: Jangan Sampai Overspending!</h2>
+                    <p class="text-lg text-text-dark sm:text-justify text-left mb-6 fade-in">Banyak dari kita yang terjebak antara kebutuhan dan keinginan sehingga akhirnya melakukan overspending atau pengeluaran berlebihan. Kita melakukan ini karena tidak bisa membedakan mana yang benar-benar kita butuhkan dan mana yang hanya sekadar kita inginkan. Kemampuan membedakan dua hal ini akan membuat rencana keuanganmu jauh lebih solid.</p>
+                    <p class="text-lg text-text-dark sm:text-justify text-left mb-6 fade-in">Ini nih yang paling sering menjebak mahasiswa: bedain antara butuh dan mau! Contoh paling gampang: butuh kuota internet untuk kuliah online itu wajib, tapi pengen langganan semua platform streaming film berbayar itu keinginan. Kebutuhan buku kuliah yang memang esensial itu penting, tapi beli sneakers keluaran terbaru tiap bulan itu keinginan. Coba biasakan untuk tidak langsung menuruti setiap keinginan dan hanya fokus untuk memenuhi kebutuhan esensial. Itulah mengapa, sangat penting untuk melakukan pencatatan pengeluaran, agar kita bisa melihat dengan jelas mana yang prioritas. Kamu juga bisa coba praktikkan 'delay gratification': kalau ada keinginan muncul, jangan langsung beli. Tunggu 24 jam atau seminggu, apakah keinginan itu masih sekuat sebelumnya?</p>
                     
-                    <blockquote class="fade-in">
+                    <!-- Blockquote -->
+                    <blockquote class="relative border-l-4 border-secondary my-8 p-6 md:p-8 bg-gradient-to-br from-bg-light to-gray-100 rounded-xl italic text-lg text-text-dark fade-in">
+                        <span class="absolute top-[-10px] left-4 text-6xl text-secondary opacity-30">"</span>
                         "Semua hal yang besar itu dimulai dari hal yang kecil."
-                        <footer>— Kalimasada</footer>
+                        <footer class="mt-4 text-sm text-text-light font-medium not-italic">— Kalimasada</footer>
                     </blockquote>
 
-                    <p class="fade-in">Dengan menerapkan keempat langkah sederhana ini secara konsisten, meskipun kamu masih mahasiswa, kamu sudah menapakkan langkah besar menuju kemerdekaan finansial. Ingat, konsistensi adalah kunci!</p>
-                    <div class="fade-in">
-    <h2>Sumber Referensi</h2>
-    <ul>
-        <li>Materi utama oleh: Kalimasada.</li>
-        <li>Instagram: <a href="https://www.instagram.com/kalimasada97?utm_source=ig_web_button_share_sheet&igsh=ZHQ3Y3B5dW45d2g4" target="_blank" rel="noopener noreferrer">kalimasada97</a></li>
-        <li>Discord: Komunitas Ternak Uang (<a href="https://discordapp.com/channels/1380823065264652321/1380823604366802964" target="_blank" rel="noopener noreferrer">https://discord.com/ternakuang</a>)</li>
-    </ul>
-</div>
-                </article>
-
-                <hr class="my-5">
-
-                <div class="d-flex flex-column flex-sm-row justify-content-between align-items-center mt-5 mb-3 blog-nav">
-                    <a href="../index.html#blog" class="btn btn-outline-primary btn-lg flex-fill me-sm-4 mb-2 mb-sm-0">
-                        <i class="fas fa-arrow-left"></i> Halaman utama
-                    </a>
+                    <p class="text-lg text-text-dark sm:text-justify text-left mb-6 fade-in">Dengan menerapkan keempat langkah sederhana ini secara konsisten, meskipun kamu masih mahasiswa, kamu sudah menapakkan langkah besar menuju kemerdekaan finansial. Ingat, konsistensi adalah kunci!</p>
                     
-                    <a href="mindset-progresif.html" class="btn btn-outline-primary btn-lg flex-fill">
-                        Blog selanjutnya <i class="fas fa-arrow-right"></i>
+                    <!-- Sumber Referensi -->
+                    <div class="mt-12 p-6 bg-bg-light rounded-xl fade-in">
+                        <h3 class="text-xl font-bold text-text-dark mb-4">Sumber Referensi</h3>
+                        <ul class="list-none pl-0">
+                            <li class="relative pl-6 text-text-dark mb-2">Materi utama oleh: <span class="font-semibold">Kalimasada, M.M.</span></li>
+                            <li class="relative pl-6 text-text-dark mb-2">Instagram: <a href="https://www.instagram.com/kalimasada97" class="text-secondary hover:underline">@kalimasada97</a></li>
+                            <li class="relative pl-6 text-text-dark mb-2">Discord: Komunitas Ternak Uang (<a href="https://discord.com/ternakuang" class="text-secondary hover:underline">https://discord.com/ternakuang</a>)</li>
+                        </ul>
+                    </div>
+
+                </article>
+                
+                <hr class="my-10 border-t-2 border-border-light">
+
+                <!-- Navigation -->
+                <div class="flex flex-col sm:flex-row justify-between items-center mt-12 mb-6">
+                    <a href="../blog-post/tren-media.html" class="btn-outline-primary w-full sm:w-auto text-center py-4 px-8 rounded-lg font-medium border-2 transition-all duration-300 hover:shadow-lg flex items-center justify-center gap-3">
+                        <i class="fas fa-arrow-left"></i> Blog sebelumnya
+                    </a>
+                    <a href="../index.html#blog" class="btn-outline-primary w-full sm:w-auto text-center py-4 px-8 rounded-lg font-medium border-2 transition-all duration-300 hover:shadow-lg flex items-center justify-center gap-3 mt-4 sm:mt-0">
+                        Halaman utama <i class="fas fa-arrow-right"></i>
                     </a>
                 </div>
             </section>
         </main>
-
-        <footer class="footer-area text-center py-2 bg-dark text-white">
-            <div class="container">
-                        <div class="social-links">
-                            <a href="https://www.tiktok.com/@de.boyyss?_t=ZS-8xljkShWOEK&_r=1" class="text-white me-3" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
-                            <a href="https://www.linkedin.com/in/dimas-ramadhan-361a72344?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" class="text-white me-3" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                            <a href="https://www.instagram.com/dimas_m.ramadhan?igsh=MWQzZHAwM2czMTkzZg==" class="text-white" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                        </div>
-                <div class="row">
-                    <div class="col-12">
-                        <p class="mb-3">&copy; 2025 ByDimas. All rights reserved.</p>
-                    </div>
+        
+        <!-- Footer -->
+        <footer class="bg-primary text-white text-center py-4 mt-12">
+            <div class="container mx-auto px-4">
+                <div class="social-links mb-4">
+                    <a href="https://www.tiktok.com/@de.boyyss?_t=ZS-8xljkShWOEK&_r=1" class="text-white p-2 mx-2 text-2xl inline-block transition-transform duration-300 hover:scale-110" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                    <a href="https://www.linkedin.com/in/dimas-ramadhan-361a72344?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" class="text-white p-2 mx-2 text-2xl inline-block transition-transform duration-300 hover:scale-110" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://www.instagram.com/dimas_m.ramadhan?igsh=MWQzZHAwM2czMTkzZg==" class="text-white p-2 mx-2 text-2xl inline-block transition-transform duration-300 hover:scale-110" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
                 </div>
+                <p class="mb-0 text-sm md:text-base">&copy; 2025 ByDimas. All rights reserved.</p>
             </div>
         </footer>
     </div>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
     
+    <!-- Script untuk bilah progres, animasi, dan side menu -->
     <script>
-        // Reading progress bar
+        // Bilah progres membaca
         window.addEventListener('scroll', function() {
             const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
             const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
@@ -481,7 +314,7 @@
             document.getElementById('progressBar').style.width = scrolled + '%';
         });
 
-        // Staggered fade-in animation
+        // Animasi fade-in berurutan saat elemen terlihat
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -50px 0px'
@@ -490,8 +323,7 @@
         const observer = new IntersectionObserver(function(entries) {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.style.animationDelay = '0.1s';
-                    entry.target.classList.add('fade-in');
+                    entry.target.classList.add('fade-in-active');
                     observer.unobserve(entry.target);
                 }
             });
@@ -499,6 +331,19 @@
 
         document.querySelectorAll('.fade-in').forEach(el => {
             observer.observe(el);
+        });
+
+        // Logika untuk side menu
+        const menuBtn = document.getElementById('menu-btn');
+        const closeMenuBtn = document.getElementById('close-menu-btn');
+        const sideMenu = document.getElementById('side-menu');
+
+        menuBtn.addEventListener('click', () => {
+            sideMenu.classList.add('open');
+        });
+
+        closeMenuBtn.addEventListener('click', () => {
+            sideMenu.classList.remove('open');
         });
     </script>
 </body>
